@@ -61,8 +61,8 @@ RewriteCond %{REQUEST_URI}  ^/socket.io             [NC]
 RewriteCond %{QUERY_STRING}  transport=websocket    [NC]
 RewriteRule /(.*)            ws://10.0.2.15:8088/$1 [P,L]
 
-ProxyPass /jsonverse http://10.0.2.15:8088/
-ProxyPassReverse /jsonverse http://10.0.2.15:8088/
+ProxyPass /jsonverse http://10.0.2.15:8088
+ProxyPassReverse /jsonverse http://10.0.2.15:8088
 
 ProxyPass /socket.io http://10.0.2.15:8088/socket.io
 ProxyPassReverse /socket.io http://10.0.2.15:8088/socket.io
