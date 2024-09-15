@@ -52,8 +52,8 @@ ServerRoot "/usr/local/apache2"
 Listen 80
 
 <VirtualHost *:80>
-ProxyPass / http://172.17.0.2:8088/
-ProxyPassReverse / http://172.17.0.2:8088/
+ProxyPass /socket.io http://172.17.0.2:8088/
+ProxyPassReverse /socket.io http://172.17.0.2:8088/
 
 ServerAdmin carlsonsolutiondesign@gmail.com
 ServerAlias www.carlsons.net
