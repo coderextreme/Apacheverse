@@ -8,6 +8,7 @@ RUN apt-get update && \
 RUN mkdir -p /var/log/apache2/
 RUN a2enmod proxy
 RUN a2enmod proxy_http
+RUN a2enmod proxy_wstunnel
 RUN a2enmod proxy_ajp
 RUN a2enmod rewrite
 RUN a2enmod deflate
