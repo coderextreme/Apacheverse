@@ -52,20 +52,20 @@ ServerRoot "/usr/local/apache2"
 Listen 80
 
 <VirtualHost *:80>
-LoadModule proxy_module                 modules/mod_proxy.so
-LoadModule proxy_http_module            modules/mod_proxy_http.so
-LoadModule proxy_wstunnel_module        modules/mod_proxy_wstunnel.so
-LoadModule rewrite_module               modules/mod_rewrite.so
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so
+LoadModule rewrite_module modules/mod_rewrite.so
 
-RewriteCond %{REQUEST_URI}  ^/socket.io             [NC]
-RewriteCond %{QUERY_STRING}  transport=websocket    [NC]
-RewriteRule /(.*)            ws://10.0.2.15:8088/$1 [P,L]
+RewriteCond %{REQUEST_URI}  ^/socket.io            [NC]
+RewriteCond %{QUERY_STRING} transport=websocket    [NC]
+RewriteRule /(.*)           ws://10.0.2.15:8088/$1 [P,L]
 
 ProxyPass /jsonverse http://10.0.2.15:8088
 ProxyPassReverse /jsonverse http://10.0.2.15:8088
 
-ProxyPass /socket.io http://10.0.2.15:8088/socket.io
-ProxyPassReverse /socket.io http://10.0.2.15:8088/socket.io
+ProxyPass        /socket.io  http://10.0.2.15:8088/socket.io
+ProxyPassReverse /socket.io  http://10.0.2.15:8088/socket.io
 
 ProxyTimeout 60
 </VirtualHost>
