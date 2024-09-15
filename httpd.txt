@@ -73,7 +73,7 @@ LoadModule rewrite_module               modules/mod_rewrite.so
 LoadModule slotmem_shm_module           modules/mod_slotmem_shm.so
 LoadModule unixd_module                 modules/mod_unixd.so
 
-ProxyPass / http://localhost:8088/
+ProxyPass /socket.io http://localhost:8088/
 RewriteEngine on
 RewriteCond %{HTTP:Upgrade} websocket [NC]
 RewriteCond %{HTTP:Connection} upgrade [NC]
@@ -489,6 +489,8 @@ LogLevel warn
     #
     #AddType text/html .shtml
     #AddOutputFilter INCLUDES .shtml
+    AddType text/javascript .js
+    AddType text/javascript .mjs
 </IfModule>
 
 #
