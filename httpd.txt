@@ -59,7 +59,7 @@ LoadModule rewrite_module               modules/mod_rewrite.so
 
 RewriteCond %{REQUEST_URI}  ^/socket.io             [NC]
 RewriteCond %{QUERY_STRING}  transport=websocket    [NC]
-RewriteRule /(.*)            ws://localhost:8888/$1 [P,L]
+RewriteRule /(.*)            ws://localhost:8088/$1 [P,L]
 
 ProxyPass /jsonverse http://localhost:8088/
 ProxyPassReverse /jsonverse http://localhost:8088/
